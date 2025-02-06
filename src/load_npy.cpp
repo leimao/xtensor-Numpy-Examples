@@ -47,6 +47,3 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-
-// Build command: g++ load_npy.cpp -o load_npy -I/usr/local/include -std=c++14
-// -O3
