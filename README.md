@@ -11,7 +11,7 @@ In some use cases, we would like to load and save Numpy files in C++ application
 To build the Docker image, please run the following command.
 
 ```bash
-docker build -f docker/xtensor.Dockerfile --tag xtensor:24.04 .
+$ docker build -f docker/xtensor.Dockerfile --tag xtensor:24.04 .
 ```
 
 ### Run Docker Container
@@ -19,7 +19,7 @@ docker build -f docker/xtensor.Dockerfile --tag xtensor:24.04 .
 To run the Docker container, please run the following command.
 
 ```bash
-docker run -it --rm -v $(pwd):/mnt -w /mnt xtensor:24.04
+$ docker run -it --rm -v $(pwd):/mnt -w /mnt xtensor:24.04
 ```
 
 ### Build and Run Examples
