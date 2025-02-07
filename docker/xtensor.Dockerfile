@@ -48,10 +48,27 @@ RUN cd /tmp && \
     bash cmake-${CMAKE_VERSION}-linux-x86_64.sh --prefix=/usr/local --exclude-subdir --skip-license && \
     rm -rf /tmp/*
 
-# Install xtensor
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        xtensor-dev && \
-    apt-get clean
+# # Install xtensor
+# RUN apt-get update && apt-get install -y --no-install-recommends \
+#         xtensor-dev && \
+#     apt-get clean
+
+# Install xtensor from source
+RUN cd /tmp && \
+    git clone https://github.com/xtensor-stack/xtl.git && \
+    cd xtl && \
+    mkdir build && \
+    cd build && \
+    cmake .. -DCMAKE_INSTALL_PREFIX=/usr && \
+    make install && \
+    cd /tmp && \
+    git clone https://github.com/xtensor-stack/xtensor.git && \
+    cd xtensor && \
+    mkdir build && \
+    cd build && \
+    cmake .. -DCMAKE_INSTALL_PREFIX=/usr && \
+    make install && \
+    rm -rf /tmp/*
 
 # Install NumPy
 RUN pip install numpy==2.2.2
